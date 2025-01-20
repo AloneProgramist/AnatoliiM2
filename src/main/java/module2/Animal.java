@@ -1,9 +1,7 @@
 package module2;
-
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.Random;
 
 public abstract class Animal {
     protected Map<AnimalsNames, Double> eatMap = new HashMap<>();
@@ -39,6 +37,8 @@ public abstract class Animal {
     }
 
     public void move() {
+        if (Weight != 120 && Height != 50) {
 
+        }
     }
 }
