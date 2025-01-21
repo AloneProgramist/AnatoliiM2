@@ -1,17 +1,19 @@
 package module2;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Properties;
 
 public class Runner {
     public Runner() {
         Properties prop = new Properties();
-        Map map = new Map();
+        GameMap gameMap = new GameMap();
         try {
             prop.load(Main.class.getClassLoader().getResourceAsStream("config.properties"));
             if (prop.getProperty("weight") != null && prop.getProperty("height") != null) {
-                map.heightMAP = Integer.parseInt(prop.getProperty("height"));
-                map.weightMAP = Integer.parseInt(prop.getProperty("weight"));
+                gameMap.heightMAP = Integer.parseInt(prop.getProperty("height"));
+                gameMap.weightMAP = Integer.parseInt(prop.getProperty("weight"));
+
             } else {
                 throw new WantedParamsNotFounded("Please write wanted params");
             }
@@ -21,7 +23,9 @@ public class Runner {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
+        gameMap.initMap();
+        Predators lol = new Predators(AnimalsNames.BEAR, Map.of(AnimalsNames.BOA, 0.65423));
+        gameMap.map[60][30].add(lol);
+        lol.move(gameMap);
     }
 }
