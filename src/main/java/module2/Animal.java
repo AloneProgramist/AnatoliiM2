@@ -6,8 +6,8 @@ import java.util.Random;
 public abstract class Animal {
     protected Map<AnimalsNames, Double> eatMap = new HashMap<>();
     private AnimalsNames Name;
-    private int Height = 30;
-    private int Weight = 60;
+    private int Height = 0;
+    private int Weight = 0;
     public AnimalsNames getName() {
         return Name;
     }
@@ -37,42 +37,141 @@ public abstract class Animal {
     }
 
     public void move(GameMap map) {
-        if (Weight != GameMap.weightMAP && Height != GameMap.heightMAP) {
-            int randomNum = (int) (Math.random() * 4);
-            System.out.println(randomNum);
-            switch (randomNum) {
-                case 0:
-                    Up(map);
-                    break;
-                case 1:
-                    Down(map);
-                    break;
-                case 2:
-                    Left(map);
-                    break;
-                case 3:
-                    Right(map);
-                    break;
+            Random random = new Random();
+            int randomNUM;
+            if (Weight > 0 && Weight < GameMap.weightMAP && Height > 0 && Height < GameMap.heightMAP) {
+                randomNUM = random.nextInt(0,4);
+                switch (randomNUM) {
+                    case 0:
+                        Up(map);
+                        break;
+                    case 1:
+                        Down(map);
+                        break;
+                    case 2:
+                        Left(map);
+                        break;
+                    case 3:
+                        Right(map);
+                        break;
+                }
+            } else if (Weight == GameMap.weightMAP && Height == GameMap.heightMAP) {
+                randomNUM = random.nextInt(0,2);
+                switch (randomNUM) {
+                    case 0:
+                        Down(map);
+                        break;
+                    case 1:
+                        Left(map);
+                        break;
+                }
+            } else if (Weight == 0 && Height == 0) {
+                randomNUM = random.nextInt(0,2);
+                switch (randomNUM) {
+                    case 0:
+                        Up(map);
+                        break;
+                    case 1:
+                        Right(map);
+                        break;
+                }
+            } else if (Weight > 0 && Weight < GameMap.weightMAP && Height == 0) {
+                randomNUM = random.nextInt(0,3);
+                switch (randomNUM) {
+                    case 0:
+                        Up(map);
+                        break;
+                    case 1:
+                        Right(map);
+                        break;
+                    case 2:
+                        Left(map);
+                        break;
+                }
+            } else if (Weight > 0 && Weight < GameMap.weightMAP && Height == GameMap.heightMAP) {
+                randomNUM = random.nextInt(0,3);
+                switch (randomNUM) {
+                    case 0:
+                        Down(map);
+                        break;
+                    case 1:
+                        Right(map);
+                        break;
+                    case 2:
+                        Left(map);
+                        break;
+                }
+            } else if (Weight == 0 && Height > 0 && Height < GameMap.heightMAP) {
+                randomNUM = random.nextInt(0,3);
+                switch (randomNUM) {
+                    case 0:
+                        Down(map);
+                        break;
+                    case 1:
+                        Right(map);
+                        break;
+                    case 2:
+                        Up(map);
+                        break;
+                }
+            } else if (Weight == GameMap.weightMAP && Height > 0 && Height < GameMap.heightMAP) {
+                randomNUM = random.nextInt(0,3);
+                switch (randomNUM) {
+                    case 0:
+                        Down(map);
+                        break;
+                    case 1:
+                        Left(map);
+                        break;
+                    case 2:
+                        Up(map);
+                        break;
+                }
+            } else if (Weight == GameMap.weightMAP && Height == 0) {
+                randomNUM = random.nextInt(0, 2);
+                switch (randomNUM) {
+                    case 0:
+                        Left(map);
+                        break;
+                    case 1:
+                        Up(map);
+                        break;
+                }
+            } else if (Weight == 0 && Height == GameMap.heightMAP) {
+                randomNUM = random.nextInt(0, 2);
+                switch (randomNUM) {
+                    case 0:
+                        Right(map);
+                        break;
+                    case 1:
+                        Down(map);
+                        break;
+                }
             }
+
+    }
+    public void moveACoupleOfTimes(GameMap map, int times) {
+        for (int i = 0; i < times ; i++) {
+            move(map);
         }
     }
     private void Up(GameMap map) {
-        Height=+1;
+        Height=Height+1;
         map.map[Weight][Height-1].remove(this);
         map.map[Weight][Height].add(this);
     }
     private void Down(GameMap map) {
-        Height=-1;
+        Height=Height-1;
         map.map[Weight][Height+1].remove(this);
         map.map[Weight][Height].add(this);
     }
     private void Left(GameMap map) {
-        Weight =-1;
+        Weight =Weight-1;
         map.map[Weight+1][Height].remove(this);
         map.map[Weight][Height].add(this);
     }
     private void Right(GameMap map) {
-        Weight =+1;
+        Weight =Weight+1;
         map.map[Weight-1][Height].remove(this);
         map.map[Weight][Height].add(this);
     }

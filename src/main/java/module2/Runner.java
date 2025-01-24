@@ -24,8 +24,8 @@ public class Runner {
             throw new RuntimeException(e);
         }
         gameMap.initMap();
-        Predators lol = new Predators(AnimalsNames.BEAR, Map.of(AnimalsNames.BOA, 0.65423));
-        gameMap.map[60][30].add(lol);
-        lol.move(gameMap);
+        Predators lol = new Predators(AnimalsNames.BEAR, Map.of(AnimalsNames.BOA, 0.65));
+        gameMap.map[0][0].add(lol);
+
     }
 }
