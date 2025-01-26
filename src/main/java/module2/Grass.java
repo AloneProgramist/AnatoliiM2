@@ -5,7 +5,6 @@ import java.util.Map;
 public class Grass extends Animal {
     public Grass(AnimalsNames name,  int weight, int height) {
         Name  = name;
-        eatMap =  mapEat;
         Height = height;
         Weight = weight;
     }
