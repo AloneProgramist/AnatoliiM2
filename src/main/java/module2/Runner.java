@@ -24,8 +24,13 @@ public class Runner {
             throw new RuntimeException(e);
         }
         gameMap.initMap();
-        Predators lol = new Predators(AnimalsNames.BEAR, Map.of(AnimalsNames.BOA, 0.65));
+        BaseEatingMapForAll baseEatingMapForAll = new BaseEatingMapForAll();
+        Predators lol = new Predators(AnimalsNames.BEAR, baseEatingMapForAll.getEatMap(AnimalsNames.BEAR) );
         gameMap.map[0][0].add(lol);
-        lol.eat(gameMap);
+        Herbivores lol2 = new Herbivores(AnimalsNames.HORSE, baseEatingMapForAll.getEatMap(AnimalsNames.HORSE));
+        gameMap.map[0][0].add(lol2);
+        System.out.println(gameMap.map[0][0].toString());
+        System.out.println(lol.eat(gameMap));
+        System.out.println(gameMap.map[0][0].toString());
     }
 }
