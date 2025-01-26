@@ -7,6 +7,7 @@ public abstract class Animal {
     private AnimalsNames Name;
     private int Height = 0;
     private int Weight = 0;
+    private boolean isAte;
     public AnimalsNames getName() {
         return Name;
     }
@@ -15,7 +16,7 @@ public abstract class Animal {
     }
 
 
-    public void eat(GameMap map) {
+    public boolean eat(GameMap map) {
         ArrayList<Animal> animalsMap = map.map[Weight][Height];
         Set<AnimalsNames> namesEatAnimals = eatMap.keySet();
         Random random = new Random();
@@ -24,11 +25,17 @@ public abstract class Animal {
                 if (animal.Name == name) {
                     Double value = eatMap.get(name);
                     if (random.nextDouble() <= value) {
-
+                        double[] thisAnimalNeedToFullEat = animalsInfo.getAnimalInfo(Name);
+                        double[] animalWhoEaten = animalsInfo.getAnimalInfo(animal.Name);
+                        if (thisAnimalNeedToFullEat[2]/2 <= animalWhoEaten[0]) {
+                            animalsMap.remove(animal);
+                            return true;
+                        }
                     }
                 }
             }
         }
+        return false;
     }
 
     public int getWeight() {
