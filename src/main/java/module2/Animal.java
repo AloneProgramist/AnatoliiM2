@@ -3,6 +3,7 @@ import java.util.*;
 
 public abstract class Animal {
     protected Map<AnimalsNames, Double> eatMap = new HashMap<>();
+    private AnimalsInfo animalsInfo = new AnimalsInfo();
     private AnimalsNames Name;
     private int Height = 0;
     private int Weight = 0;

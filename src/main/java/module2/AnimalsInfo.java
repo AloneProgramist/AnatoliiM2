@@ -17,4 +17,44 @@ public class AnimalsInfo {
     private final double[] duckInfo = {1.0, 4.0, 0.15};
     private final double[] caterpillarInfo = {0.01, 1.0, 0.0};
     private final double[] grassInfo = {1.0, 0.0, 0.0};
+
+    public double[] getAnimalInfo(AnimalsNames name) {
+        switch (name) {
+            case WOLF:
+                return wolfInfo;
+            case BOA:
+                return boaInfo;
+            case FOX:
+                return foxInfo;
+            case BEAR:
+                return bearInfo;
+            case EAGLE:
+                return eagleInfo;
+            case HORSE:
+                return horseInfo;
+            case DEER:
+                return deerInfo;
+            case RABBIT:
+                return rabbitInfo;
+            case MOUSE:
+                return mouseInfo;
+            case GOAT:
+                return goatInfo;
+            case SHEEP:
+                return sheepInfo;
+            case BOAR:
+                return boarInfo;
+            case BUFFALO:
+                return buffaloInfo;
+            case DUCK:
+                return duckInfo;
+            case CATERPILLAR:
+                return caterpillarInfo;
+            case GRASS:
+                return grassInfo;
+            default:
+                return null;
+        }
+    }
+
 }
