@@ -37,6 +37,8 @@ public abstract class Animal {
         return Weight;
     }
 
+
+
     public int getHeight() {
         return Height;
     }

@@ -12,4 +12,16 @@ public class Herbivores extends Animal {
     public Herbivores Reproduce() {
         return new CreatorAnimal().createSingleAnimal(this);
     }
+
+    public void Day(GameMap map) {
+        boolean isAte = eat(map);
+        if (isAte) {
+            move(map);
+            Reproduce();
+        }
+        else {
+            move(map);
+            map.map[Weight][Height].remove(this);
+        }
+    }
 }
