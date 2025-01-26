@@ -7,13 +7,9 @@ import java.util.Set;
 public abstract class Animal {
     protected Map<AnimalsNames, Double> eatMap = new HashMap<>();
     private final AnimalsInfo animalsInfo = new AnimalsInfo();
-    private AnimalsNames Name;
-    private int Height = 0;
-    private int Weight = 0;
-
-    public AnimalsNames getName() {
-        return Name;
-    }
+    protected AnimalsNames Name;
+    protected int Height = 0;
+    protected int Weight = 0;
 
     public boolean eat(GameMap map) {
         ArrayList<Animal> animalsMap = map.map[Weight][Height];
@@ -41,16 +37,8 @@ public abstract class Animal {
         return Weight;
     }
 
-    public void setWeight(int weight) {
-        Weight = weight;
-    }
-
     public int getHeight() {
         return Height;
-    }
-
-    public void setHeight(int height) {
-        Height = height;
     }
 
     public void move(GameMap map) {

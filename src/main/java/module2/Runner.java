@@ -25,12 +25,5 @@ public class Runner {
         }
         gameMap.initMap();
         BaseEatingMapForAll baseEatingMapForAll = new BaseEatingMapForAll();
-        Predators lol = new Predators(AnimalsNames.BEAR, baseEatingMapForAll.getEatMap(AnimalsNames.BEAR) );
-        gameMap.map[0][0].add(lol);
-        Herbivores lol2 = new Herbivores(AnimalsNames.HORSE, baseEatingMapForAll.getEatMap(AnimalsNames.HORSE));
-        gameMap.map[0][0].add(lol2);
-        System.out.println(gameMap.map[0][0].toString());
-        System.out.println(lol.eat(gameMap));
-        System.out.println(gameMap.map[0][0].toString());
     }
 }
