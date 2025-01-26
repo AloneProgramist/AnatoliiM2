@@ -1,7 +1,5 @@
 package module2;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public abstract class Animal {
     protected Map<AnimalsNames, Double> eatMap = new HashMap<>();
@@ -16,8 +14,20 @@ public abstract class Animal {
     }
 
 
-    public void eat() {
+    public void eat(GameMap map) {
+        ArrayList<Animal> animalsMap = map.map[Weight][Height];
+        Set<AnimalsNames> namesEatAnimals = eatMap.keySet();
+        Random random = new Random();
+        for (Animal animal : animalsMap) {
+            for (AnimalsNames name : namesEatAnimals) {
+                if (animal.Name == name) {
+                    Double value = eatMap.get(name);
+                    if (random.nextDouble() <= value) {
 
+                    }
+                }
+            }
+        }
     }
 
     public int getWeight() {

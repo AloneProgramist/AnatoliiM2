@@ -26,6 +26,6 @@ public class Runner {
         gameMap.initMap();
         Predators lol = new Predators(AnimalsNames.BEAR, Map.of(AnimalsNames.BOA, 0.65));
         gameMap.map[0][0].add(lol);
-
+        lol.eat(gameMap);
     }
 }
