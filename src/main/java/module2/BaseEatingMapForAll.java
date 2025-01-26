@@ -79,4 +79,41 @@ public class BaseEatingMapForAll {
     private HashMap<AnimalsNames,Double> CaterpillarEatMap = (HashMap<AnimalsNames, Double>) Map.of(
             AnimalsNames.GRASS, 1.00
     );
+
+    public HashMap<AnimalsNames,Double> getEatMap(AnimalsNames name) {
+        switch (name) {
+            case WOLF:
+                return WolfEatMap;
+            case BOA:
+                return BoaEatMap;
+            case FOX:
+                return FoxEatMap;
+            case BEAR:
+                return BearEatMap;
+            case EAGLE:
+                return EagleEatMap;
+            case HORSE:
+                return HorseEatMap;
+            case DEER:
+                return DeerEatMap;
+            case RABBIT:
+                return RabbitEatMap;
+            case MOUSE:
+                return MouseEatMap;
+            case GOAT:
+                return GoatEatMap;
+            case SHEEP:
+                return SheepEatMap;
+            case BOAR:
+                return BoarEatMap;
+            case BUFFALO:
+                return BuffaloEatMap;
+            case DUCK:
+                return DuckEatMap;
+            case CATERPILLAR:
+                return CaterpillarEatMap;
+            default:
+                throw new IllegalArgumentException("No eating map available for: " + name);
+        }
+    }
 }
