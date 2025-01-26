@@ -1,20 +1,19 @@
 package module2;
-import java.util.*;
-
+import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Set;
 public abstract class Animal {
     protected Map<AnimalsNames, Double> eatMap = new HashMap<>();
-    private AnimalsInfo animalsInfo = new AnimalsInfo();
+    private final AnimalsInfo animalsInfo = new AnimalsInfo();
     private AnimalsNames Name;
     private int Height = 0;
     private int Weight = 0;
-    private boolean isAte;
+
     public AnimalsNames getName() {
         return Name;
     }
-    public void setName(AnimalsNames name) {
-        Name = name;
-    }
-
 
     public boolean eat(GameMap map) {
         ArrayList<Animal> animalsMap = map.map[Weight][Height];
@@ -168,6 +167,7 @@ public abstract class Animal {
             }
 
     }
+
     public void moveACoupleOfTimes(GameMap map, int times) {
         for (int i = 0; i < times ; i++) {
             move(map);
