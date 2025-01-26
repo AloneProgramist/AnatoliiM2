@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Properties;
 
 public class Runner {
+    private CreatorAnimal creatorAnimal = new CreatorAnimal();
+    private BaseEatingMapForAll baseEatingMapForAll = new BaseEatingMapForAll();
     public Runner() {
         Properties prop = new Properties();
         GameMap gameMap = new GameMap();
@@ -24,6 +26,6 @@ public class Runner {
             throw new RuntimeException(e);
         }
         gameMap.initMap();
-        BaseEatingMapForAll baseEatingMapForAll = new BaseEatingMapForAll();
+        creatorAnimal.createSomeAnimal(gameMap, 10);
     }
 }
