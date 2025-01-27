@@ -11,6 +11,7 @@ public class Grass extends Animal {
     public Grass Reproduce() {
         return new CreatorAnimal().createSingleAnimal(this);
     }
+    @Override
     public void Day(GameMap map) {
         move(map);
         Reproduce();

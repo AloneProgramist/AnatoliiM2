@@ -37,7 +37,9 @@ public abstract class Animal {
         return Weight;
     }
 
+    public void Day(GameMap map) {
 
+    }
 
     public int getHeight() {
         return Height;

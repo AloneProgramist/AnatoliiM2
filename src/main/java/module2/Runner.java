@@ -1,12 +1,15 @@
 package module2;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Properties;
 
 public class Runner {
     private final CreatorAnimal creatorAnimal = new CreatorAnimal();
     private final BaseEatingMapForAll baseEatingMapForAll = new BaseEatingMapForAll();
+    private final RunThread runThread = new RunThread();
+    private final Console console = new Console();
     public Runner() {
         Properties prop = new Properties();
         GameMap gameMap = new GameMap();
@@ -23,11 +26,12 @@ public class Runner {
             }
         }
         catch (NullPointerException ex) {
-            throw new ConfigFileDoesntNotExists("Config file not founded please create this file");
+            throw new ConfigFileDoesntNotExists("Config file not founded please create config file");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         gameMap.initMap();
         creatorAnimal.createSomeAnimal(gameMap, initingAnimals);
+        runThread.Start(gameMap);
     }
 }

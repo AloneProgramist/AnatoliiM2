@@ -12,6 +12,7 @@ public class Predators extends Animal {
     public Predators Reproduce() {
        return new CreatorAnimal().createSingleAnimal(this);
     }
+    @Override
     public void Day(GameMap map) {
         boolean isAte = eat(map);
         if (isAte) {

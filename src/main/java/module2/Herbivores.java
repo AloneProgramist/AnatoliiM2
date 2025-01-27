@@ -12,7 +12,7 @@ public class Herbivores extends Animal {
     public Herbivores Reproduce() {
         return new CreatorAnimal().createSingleAnimal(this);
     }
-
+    @Override
     public void Day(GameMap map) {
         boolean isAte = eat(map);
         if (isAte) {
