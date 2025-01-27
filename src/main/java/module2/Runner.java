@@ -8,7 +8,6 @@ import java.util.Properties;
 public class Runner {
     private final CreatorAnimal creatorAnimal = new CreatorAnimal();
     private final BaseEatingMapForAll baseEatingMapForAll = new BaseEatingMapForAll();
-    private final RunThread runThread = new RunThread();
     private final Console console = new Console();
     public Runner() {
         Properties prop = new Properties();
@@ -32,6 +31,6 @@ public class Runner {
         }
         gameMap.initMap();
         creatorAnimal.createSomeAnimal(gameMap, initingAnimals);
-        runThread.Start(gameMap);
+        console.ConsoleInterface(gameMap);
     }
 }
